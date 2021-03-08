@@ -1,7 +1,366 @@
-$font: "helvetica", sans-serif;
+$defaultFont: "helvetica", sans-serif;
+$numberFont: "montserrat", sans-serif;
+
+$fontWeightB: 700;
+$fontWeightN: 300;
+$fontWeightL: 100;
+
+$textColorA: #73767d;
+$textColorB: #16283d;
+$textColorC: #ffffff;
+
+$primaryColor: #3e85ef;
+$baseColor: #edf1f3;
+$selectingColorA: #ffca64;
+$selectingColorB: #fb431b;
+
+$border: 6px;
+
+body {
+  font-family: $defaultFont;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+table,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  color: $textColorB;
+}
+
+em,
+ul,
+li,
+a {
+  text-decoration: none;
+  list-style: none;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  color: $textColorB;
+}
+
+input {
+  margin: 0;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
 
 .header {
   h1 {
-    font-family: $font;
+    font-weight: $fontWeightN;
+    text-align: center;
+    margin-top: 130px;
+    font-size: 32px;
+  }
+  p {
+    font-weight: $fontWeightN;
+    text-align: center;
+    margin-top: 27px;
+
+    em {
+      font-family: $numberFont;
+      font-weight: $fontWeightB;
+    }
+  }
+}
+
+.professorList {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 40px;
+  li {
+    padding: 20px;
+    a {
+      display: inline-block;
+      width: 230px;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      border-radius: $border;
+      font-weight: $fontWeightB;
+      font-size: 20px;
+      background-color: $baseColor;
+      color: $textColorB;
+      &:hover {
+        color: $textColorC;
+        background-color: $primaryColor;
+      }
+    }
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 80px;
+
+  .content {
+    width: 890px;
+    height: 910px;
+    border: 1px solid $baseColor;
+    box-shadow: 0px 0px 20px rgba(54, 54, 54, 0.1);
+
+    .consult-con {
+      margin-left: 85px;
+      margin-top: 70px;
+
+      h2 {
+        font-weight: $fontWeightB;
+        font-size: 24px;
+      }
+      .consult-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-top: 30px;
+        li {
+          margin-right: 50px;
+          a {
+            display: inline-block;
+            padding: 10px;
+            height: 30px;
+            width: 110%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: $fontWeightN;
+            font-size: 18px;
+            border-radius: $border;
+            &:hover {
+              background-color: $primaryColor;
+              color: $textColorC;
+            }
+          }
+          input {
+            border: 0;
+            background-color: $baseColor;
+            border-radius: 0;
+            width: 300px;
+            height: 40px;
+            margin-top: 5px;
+            &:focus {
+              border: 1px solid rgb(212, 209, 209);
+              box-shadow: none;
+              outline: none;
+            }
+          }
+          &:nth-child(n + 4) {
+            margin-right: 30px;
+          }
+        }
+      }
+    }
+
+    .select-day {
+      margin-left: 85px;
+      margin-top: 70px;
+      h2 {
+        font-weight: $fontWeightB;
+        font-size: 24px;
+      }
+      h3 {
+        font-family: $numberFont;
+        font-weight: $fontWeightB;
+        color: $textColorA;
+        font-size: 24px;
+        text-align: center;
+        margin-top: 30px;
+        width: 730px;
+      }
+      .calendar {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 40px;
+        width: 730px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $baseColor;
+        div {
+          display: inline-block;
+        }
+        .prevMonth {
+          width: 60%;
+          margin-top: 70px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        .calendar-con {
+          width: 420px;
+          height: 280px;
+          padding-right: 20px;
+          thead {
+            tr {
+              th {
+                width: 60px;
+                height: 40px;
+                font-family: $numberFont;
+                font-weight: $fontWeightB;
+                color: $textColorB;
+                font-size: 18px;
+                text-align: center;
+              }
+            }
+          }
+          tbody {
+            tr {
+              td {
+                height: 40px;
+                text-align: center;
+                p {
+                  width: 33px;
+                  height: 33px;
+                  font-family: $numberFont;
+                  font-weight: $fontWeightN;
+                  color: $textColorA;
+                  line-height: 33px;
+                  margin-left: 12px;
+                  cursor: pointer;
+                  &:hover {
+                    background-color: $primaryColor;
+                    color: $textColorC;
+                    border-radius: $border;
+                  }
+                }
+
+                &:first-child {
+                  p {
+                    background-color: $baseColor;
+                    border-radius: $border;
+                    line-height: 33px;
+                    cursor: not-allowed;
+                    &:hover {
+                      color: $textColorA;
+                    }
+                  }
+                }
+                &:nth-child(n + 7) {
+                  p {
+                    background-color: $baseColor;
+                    line-height: 33px;
+                    border-radius: $border;
+                    cursor: not-allowed;
+                    &:hover {
+                      color: $textColorA;
+                    }
+                  }
+                }
+                .pickDay {
+                  p {
+                    background-color: $baseColor;
+                    line-height: 33px;
+                    border-radius: $border;
+                    cursor: not-allowed;
+                    &:hover {
+                      color: $textColorA;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .nextMonth {
+          width: 60%;
+          margin-top: 70px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      .select-con {
+        margin-top: 30px;
+        width: 730px;
+        p {
+          text-align: center;
+          font-size: 16px;
+          font-weight: $textColorA;
+          font-weight: $fontWeightL;
+        }
+        .time {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          height: 40px;
+          margin-top: 20px;
+          span {
+            width: 65px;
+            height: 100%;
+            border-radius: $border;
+            border: 1px solid $baseColor;
+            font-size: 18px;
+            text-align: center;
+            line-height: 40px;
+            &:hover {
+              background-color: $primaryColor;
+              color: $textColorC;
+              cursor: pointer;
+            }
+          }
+        }
+        .emailForm {
+          text-align: center;
+          margin: 30px;
+          span {
+            font-size: 18px;
+            padding-right: 10px;
+          }
+          input {
+            border: 0;
+            background-color: $baseColor;
+            border-radius: 0;
+            width: 380px;
+            height: 40px;
+            margin-top: 5px;
+            &:focus {
+              border: 1px solid rgb(212, 209, 209);
+              box-shadow: none;
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+button {
+  width: 150px;
+  height: 40px;
+  background-color: $primaryColor;
+  color: $textColorC;
+  font-size: 20px;
+  text-align: center;
+  line-height: 40px;
+  border: 0;
+  border-radius: $border;
+}
+
+footer {
+  width: 100%;
+  height: 200px;
+  margin-top: 140px;
+  background-color: $textColorB;
+  li {
+    color: $textColorC;
+    font-weight: $fontWeightL;
+    font-family: $defaultFont;
+    text-align: center;
+    padding-top: 10px;
+    a {
+      color: $baseColor;
+    }
+    &:first-child {
+      padding-top: 40px;
+    }
   }
 }
