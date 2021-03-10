@@ -34,6 +34,7 @@ input {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   vertical-align: middle;
+  padding-left: 10px;
 }
 
 .header h1 {
@@ -86,7 +87,15 @@ input {
 }
 
 .professorList li a:hover {
+  background-color: #cadeff;
+}
+
+.professorList li .pick {
   color: #ffffff;
+  background-color: #3e85ef;
+}
+
+.professorList li .pick:hover {
   background-color: #3e85ef;
 }
 
@@ -106,15 +115,18 @@ section {
 
 section .content {
   width: 890px;
-  height: 910px;
   border: 1px solid #edf1f3;
   -webkit-box-shadow: 0px 0px 20px rgba(54, 54, 54, 0.1);
           box-shadow: 0px 0px 20px rgba(54, 54, 54, 0.1);
+  padding-bottom: 40px;
 }
 
 section .content .consult-con {
   margin-left: 85px;
   margin-top: 70px;
+  width: 730px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #edf1f3;
 }
 
 section .content .consult-con h2 {
@@ -153,6 +165,19 @@ section .content .consult-con .consult-list li a {
 }
 
 section .content .consult-con .consult-list li a:hover {
+  background-color: #cadeff;
+}
+
+section .content .consult-con .consult-list li a.show {
+  display: inline-block;
+  padding: 10px;
+  height: 30px;
+  width: 110%;
+  text-align: center;
+  line-height: 30px;
+  font-weight: 300;
+  font-size: 18px;
+  border-radius: 6px;
   background-color: #3e85ef;
   color: #ffffff;
 }
@@ -260,8 +285,7 @@ section .content .select-day .calendar .calendar-con tbody tr td p {
 }
 
 section .content .select-day .calendar .calendar-con tbody tr td p:hover {
-  background-color: #3e85ef;
-  color: #ffffff;
+  background-color: #cadeff;
   border-radius: 6px;
 }
 
@@ -287,15 +311,30 @@ section .content .select-day .calendar .calendar-con tbody tr td:nth-child(n + 7
   color: #73767d;
 }
 
-section .content .select-day .calendar .calendar-con tbody tr td .pickDay p {
+section .content .select-day .calendar .calendar-con tbody tr .xday p {
   background-color: #edf1f3;
   line-height: 33px;
   border-radius: 6px;
   cursor: not-allowed;
 }
 
-section .content .select-day .calendar .calendar-con tbody tr td .pickDay p:hover {
+section .content .select-day .calendar .calendar-con tbody tr .xday p:hover {
+  background-color: #edf1f3;
   color: #73767d;
+}
+
+section .content .select-day .calendar .calendar-con tbody tr .pickday.show p {
+  background-color: #3e85ef;
+  color: #ffffff;
+  border-radius: 6px;
+}
+
+section .content .select-day .calendar .calendar-con tbody tr .Ahalf p {
+  background-color: #ffca64;
+  color: #ffffff;
+  line-height: 33px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 section .content .select-day .calendar .nextMonth {
@@ -308,14 +347,22 @@ section .content .select-day .calendar .nextMonth:hover {
 }
 
 section .content .select-day .select-con {
+  display: inline-block;
+  height: 160px;
   margin-top: 30px;
   width: 730px;
+}
+
+section .content .select-day .select-con div {
+  height: 50px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 100;
 }
 
 section .content .select-day .select-con p {
   text-align: center;
   font-size: 16px;
-  font-weight: #73767d;
   font-weight: 100;
 }
 
@@ -342,12 +389,12 @@ section .content .select-day .select-con .time span {
   font-size: 18px;
   text-align: center;
   line-height: 40px;
+  cursor: pointer;
 }
 
-section .content .select-day .select-con .time span:hover {
+section .content .select-day .select-con .time .show {
   background-color: #3e85ef;
   color: #ffffff;
-  cursor: pointer;
 }
 
 section .content .select-day .select-con .emailForm {
@@ -383,9 +430,15 @@ button {
   color: #ffffff;
   font-size: 20px;
   text-align: center;
-  line-height: 40px;
+  line-height: 38px;
   border: 0;
   border-radius: 6px;
+}
+
+button:active {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 footer {

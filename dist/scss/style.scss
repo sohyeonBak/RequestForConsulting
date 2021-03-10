@@ -51,6 +51,7 @@ input {
   margin: 0;
   box-sizing: border-box;
   vertical-align: middle;
+  padding-left: 10px;
 }
 
 .header {
@@ -91,7 +92,13 @@ input {
       background-color: $baseColor;
       color: $textColorB;
       &:hover {
-        color: $textColorC;
+        background-color: #cadeff;
+      }
+    }
+    .pick {
+      color: $textColorC;
+      background-color: $primaryColor;
+      &:hover {
         background-color: $primaryColor;
       }
     }
@@ -106,14 +113,16 @@ section {
 
   .content {
     width: 890px;
-    height: 910px;
     border: 1px solid $baseColor;
     box-shadow: 0px 0px 20px rgba(54, 54, 54, 0.1);
+    padding-bottom: 40px;
 
     .consult-con {
       margin-left: 85px;
       margin-top: 70px;
-
+      width: 730px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid $baseColor;
       h2 {
         font-weight: $fontWeightB;
         font-size: 24px;
@@ -136,6 +145,18 @@ section {
             font-size: 18px;
             border-radius: $border;
             &:hover {
+              background-color: #cadeff;
+            }
+            &.show {
+              display: inline-block;
+              padding: 10px;
+              height: 30px;
+              width: 110%;
+              text-align: center;
+              line-height: 30px;
+              font-weight: $fontWeightN;
+              font-size: 18px;
+              border-radius: $border;
               background-color: $primaryColor;
               color: $textColorC;
             }
@@ -226,12 +247,10 @@ section {
                   margin-left: 12px;
                   cursor: pointer;
                   &:hover {
-                    background-color: $primaryColor;
-                    color: $textColorC;
+                    background-color: #cadeff;
                     border-radius: $border;
                   }
                 }
-
                 &:first-child {
                   p {
                     background-color: $baseColor;
@@ -254,16 +273,35 @@ section {
                     }
                   }
                 }
-                .pickDay {
-                  p {
+              }
+              .xday {
+                p {
+                  background-color: $baseColor;
+                  line-height: 33px;
+                  border-radius: $border;
+                  cursor: not-allowed;
+                  &:hover {
                     background-color: $baseColor;
-                    line-height: 33px;
-                    border-radius: $border;
-                    cursor: not-allowed;
-                    &:hover {
-                      color: $textColorA;
-                    }
+                    color: $textColorA;
                   }
+                }
+              }
+              .pickday {
+                &.show {
+                  p {
+                    background-color: $primaryColor;
+                    color: $textColorC;
+                    border-radius: $border;
+                  }
+                }
+              }
+              .Ahalf {
+                p {
+                  background-color: #ffca64;
+                  color: $textColorC;
+                  line-height: 33px;
+                  border-radius: $border;
+                  cursor: pointer;
                 }
               }
             }
@@ -277,13 +315,21 @@ section {
           }
         }
       }
+
       .select-con {
+        display: inline-block;
+        height: 160px;
         margin-top: 30px;
         width: 730px;
+        div {
+          height: 50px;
+          text-align: center;
+          font-size: 14px;
+          font-weight: $fontWeightL;
+        }
         p {
           text-align: center;
           font-size: 16px;
-          font-weight: $textColorA;
           font-weight: $fontWeightL;
         }
         .time {
@@ -300,11 +346,11 @@ section {
             font-size: 18px;
             text-align: center;
             line-height: 40px;
-            &:hover {
-              background-color: $primaryColor;
-              color: $textColorC;
-              cursor: pointer;
-            }
+            cursor: pointer;
+          }
+          .show {
+            background-color: $primaryColor;
+            color: $textColorC;
           }
         }
         .emailForm {
@@ -340,9 +386,13 @@ button {
   color: $textColorC;
   font-size: 20px;
   text-align: center;
-  line-height: 40px;
+  line-height: 38px;
   border: 0;
   border-radius: $border;
+  &:active {
+    outline: none;
+    box-shadow: none;
+  }
 }
 
 footer {
