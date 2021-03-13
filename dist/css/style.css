@@ -337,6 +337,11 @@ section .content .select-day .calendar .calendar-con tbody tr .Ahalf p {
   cursor: pointer;
 }
 
+section .content .select-day .calendar .calendar-con tbody tr .Ahalf p:hover {
+  background-color: #ffca64;
+  color: #ffffff;
+}
+
 section .content .select-day .calendar .nextMonth {
   width: 60%;
   margin-top: 70px;
@@ -397,6 +402,11 @@ section .content .select-day .select-con .time .show {
   color: #ffffff;
 }
 
+section .content .select-day .select-con .time .delete {
+  color: #edf1f3;
+  cursor: not-allowed;
+}
+
 section .content .select-day .select-con .emailForm {
   text-align: center;
   margin: 30px;
@@ -423,7 +433,7 @@ section .content .select-day .select-con .emailForm input:focus {
   outline: none;
 }
 
-button {
+.check button {
   width: 150px;
   height: 40px;
   background-color: #3e85ef;
@@ -433,9 +443,23 @@ button {
   line-height: 38px;
   border: 0;
   border-radius: 6px;
+  cursor: pointer;
 }
 
-button:active {
+.check .hide {
+  width: 150px;
+  height: 40px;
+  background-color: #edf1f3;
+  color: #73767d;
+  font-size: 20px;
+  text-align: center;
+  line-height: 38px;
+  border: 0;
+  border-radius: 6px;
+  cursor: not-allowed;
+}
+
+.check .hide:active {
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;

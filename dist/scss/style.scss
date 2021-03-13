@@ -302,6 +302,10 @@ section {
                   line-height: 33px;
                   border-radius: $border;
                   cursor: pointer;
+                  &:hover {
+                    background-color: #ffca64;
+                    color: $textColorC;
+                  }
                 }
               }
             }
@@ -352,6 +356,10 @@ section {
             background-color: $primaryColor;
             color: $textColorC;
           }
+          .delete {
+            color: $baseColor;
+            cursor: not-allowed;
+          }
         }
         .emailForm {
           text-align: center;
@@ -379,19 +387,34 @@ section {
   }
 }
 
-button {
-  width: 150px;
-  height: 40px;
-  background-color: $primaryColor;
-  color: $textColorC;
-  font-size: 20px;
-  text-align: center;
-  line-height: 38px;
-  border: 0;
-  border-radius: $border;
-  &:active {
-    outline: none;
-    box-shadow: none;
+.check {
+  button {
+    width: 150px;
+    height: 40px;
+    background-color: $primaryColor;
+    color: $textColorC;
+    font-size: 20px;
+    text-align: center;
+    line-height: 38px;
+    border: 0;
+    border-radius: $border;
+    cursor: pointer;
+  }
+  .hide {
+    width: 150px;
+    height: 40px;
+    background-color: $baseColor;
+    color: $textColorA;
+    font-size: 20px;
+    text-align: center;
+    line-height: 38px;
+    border: 0;
+    border-radius: $border;
+    cursor: not-allowed;
+    &:active {
+      outline: none;
+      box-shadow: none;
+    }
   }
 }
 
