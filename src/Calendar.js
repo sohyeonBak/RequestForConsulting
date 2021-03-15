@@ -2,16 +2,11 @@ import Time from './Time.js'
 
 class Calendar{
     isPickProfessor='';
-    constructor($professorList,$proA,$proB,$proC){
-        
-        
-
+    constructor($professorList,$proA,$proB,$proC,$finalCheck){
         const $prevMonth = document.querySelector(".prevMonth");
         const $nextMonth = document.querySelector(".nextMonth");
         const $calendarMonth = document.querySelector(".calendarMonth");
         const $dayList = document.querySelector(".dayList");
-        const $time = document.querySelector('.time');
-        
         
 
         const leftSRC = 'https://s3-alpha-sig.figma.com/img/6174/45e2/fa79de1648a04ff017eaa043d71b612b?Expires=1616371200&Signature=YQ-zq5Waj-hSUJyYFc9YTHFJLBuQFqbffnCy9O8SMmWKhqiFFf3m16cUXJDLy1FbR~bufvGnR8ax04J2XduCvKHlyuhUSNxasgj6OG~9mpxSk2sAy-mhms2iRut2QE7JesKA3-kKdQmj9NAhDmUBoLMv3n6uFUWf-SDBnsfQEKDtHvv1DvohVhgLog3cXo4wIewEDaNjbE1Kbnq2TgYuJjMEwRCwksuy-QN4LAkNWuErKJSexND2p3kuookCmvgdeYqlvstE8PI3pt~F~R5F8oE~~AOCQVpiiFrBSG3hdL4HxPNwx4qCEngwzfunSIZ0GhOkUOy9z~qDY3Gfv-xWzg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
@@ -21,17 +16,15 @@ class Calendar{
         this.$nextMonth = $nextMonth;
         this.$calendarMonth = $calendarMonth;
         this.$dayList = $dayList;
-
         this.$prevMonth.src = leftSRC;
         this.$nextMonth.src = rightSRC;
+
+        this.$professorList = $professorList;
         this.$proA = $proA;
         this.$proB = $proB;
         this.$proC = $proC;
-        this.$time = $time;
+        this.$finalCheck = $finalCheck;
         
-        
-
-        this.Time = new Time();
 
         this.setState($professorList.querySelector('.pick').innerHTML)
         
@@ -151,72 +144,10 @@ class Calendar{
 
         }
 
-        this.$calendarMonth.textContent = thisDate
-        this.$dayList.innerHTML = tag
+        this.$calendarMonth.textContent = thisDate;
+        this.$dayList.innerHTML = tag;
 
-        const $pickDay = document.querySelectorAll('.pickday');
-        const $defaultDay = document.querySelector('.pickday');
-        const $Ahalf = document.querySelectorAll('.Ahalf');
-        const $xday = document.querySelectorAll('.xday');
-        const $info =document.querySelector('.info')
-
-        this.$pickDay = $pickDay
-        this.$defaultDay = $defaultDay
-        this.$Ahalf = $Ahalf
-        this.$xday =$xday;
-        this.$info = $info;
-        
-        this.$info.innerHTML =""
-        $defaultDay.classList.add('show')
-
-        const arr = [this.$defaultDay];
-        
-        
-        for(let j = 0; j<this.$pickDay.length; j++){
-            this.$pickDay[j].addEventListener('click',(e)=>{ 
-                this.$info.innerHTML="오전/오후 모두 가능합니다."
-                this.$defaultDay.classList.remove('show')
-                this.$pickDay[j].classList.add('show');
-                arr.push(this.$pickDay[j])
-                if(arr[arr.length-2]!==this.$pickDay[j]){
-                    arr[arr.length-2].classList.remove('show')
-                }
-                this.Time.isAllDay();
-            })
-        }
-        
-        for (let k = 0; k<this.$Ahalf.length; k++){
-            this.$Ahalf[k].addEventListener('click',(e) =>{
-                this.$defaultDay.classList.remove('show')
-                this.$Ahalf[k].classList.add('show')
-                arr.push(this.$Ahalf[k])
-                if(arr[arr.length-2]!==this.$Ahalf[k]){
-                    arr[arr.length-2].classList.remove('show')
-                }
-                if(nextData===this.$proA.innerHTML){
-                    this.$info.innerHTML="오전만 가능합니다."
-                    this.Time.isAfterTime();
-                    
-                }else if(nextData===this.$proB.innerHTML){
-                    this.$info.innerHTML="오후만 가능합니다."
-                    this.Time.isBeforeTime();
-                    
-                }else if (nextData===this.$proC.innerHTML){
-                    this.$info.innerHTML="오전만 가능합니다."
-                    this.Time.isAfterTime();
-                    
-                }
-            })
-        }
-
-        for (let y = 0; y<this.$xday.length; y++){
-            this.$xday[y].addEventListener('click', (e) =>{
-                this.$info.innerHTML=""
-            })
-        }
-
-        
-        
+        this.selectedDay(nextData)
 
         this.$prevMonth.addEventListener('click', () =>{
             thisMonth > 0 ? thisMonth-- : 0;
@@ -320,68 +251,7 @@ class Calendar{
             this.$calendarMonth.textContent = thisDate
             this.$dayList.innerHTML = tag
             
-
-            const $pickDay = document.querySelectorAll('.pickday');
-            const $defaultDay = document.querySelector('.pickday');
-            const $Ahalf = document.querySelectorAll('.Ahalf');
-            const $xday = document.querySelectorAll('.xday');
-            const $info =document.querySelector('.info')
-
-            this.$pickDay = $pickDay
-            this.$defaultDay = $defaultDay
-            this.$Ahalf = $Ahalf
-            this.$xday =$xday;
-            this.$info = $info;
-            
-            this.$info.innerHTML =""
-            $defaultDay.classList.add('show')
-
-            const arr = [this.$defaultDay];
-            
-            
-            for(let j = 0; j<this.$pickDay.length; j++){
-                this.$pickDay[j].addEventListener('click',(e)=>{ 
-                    this.$info.innerHTML="오전/오후 모두 가능합니다."
-                    this.$defaultDay.classList.remove('show')
-                    this.$pickDay[j].classList.add('show');
-                    arr.push(this.$pickDay[j])
-                    if(arr[arr.length-2]!==this.$pickDay[j]){
-                        arr[arr.length-2].classList.remove('show')
-                    }
-                    this.Time.isAllDay();
-                })
-            }
-            
-            for (let k = 0; k<this.$Ahalf.length; k++){
-                this.$Ahalf[k].addEventListener('click',(e) =>{
-                    this.$defaultDay.classList.remove('show')
-                    this.$Ahalf[k].classList.add('show')
-                    arr.push(this.$Ahalf[k])
-                    if(arr[arr.length-2]!==this.$Ahalf[k]){
-                        arr[arr.length-2].classList.remove('show')
-                    }
-                    if(nextData===this.$proA.innerHTML){
-                        this.$info.innerHTML="오전만 가능합니다."
-                        this.Time.isAfterTime();
-                        
-                    }else if(nextData===this.$proB.innerHTML){
-                        this.$info.innerHTML="오후만 가능합니다."
-                        this.Time.isBeforeTime();
-                        
-                    }else if (nextData===this.$proC.innerHTML){
-                        this.$info.innerHTML="오전만 가능합니다."
-                        this.Time.isAfterTime();
-                        
-                    }
-                })
-            }
-
-            for (let y = 0; y<this.$xday.length; y++){
-                this.$xday[y].addEventListener('click', (e) =>{
-                    this.$info.innerHTML=""
-                })
-            }
-
+            this.selectedDay(nextData)
             
         })
         
@@ -487,71 +357,85 @@ class Calendar{
             this.$calendarMonth.textContent = thisDate
             this.$dayList.innerHTML = tag
 
-            const $pickDay = document.querySelectorAll('.pickday');
-            const $defaultDay = document.querySelector('.pickday');
-            const $Ahalf = document.querySelectorAll('.Ahalf');
-            const $xday = document.querySelectorAll('.xday');
-            const $info =document.querySelector('.info')
-
-            this.$pickDay = $pickDay
-            this.$defaultDay = $defaultDay
-            this.$Ahalf = $Ahalf
-            this.$xday =$xday;
-            this.$info = $info;
-            
-            this.$info.innerHTML =""
-            $defaultDay.classList.add('show')
-
-            const arr = [this.$defaultDay];
-            
-            
-            for(let j = 0; j<this.$pickDay.length; j++){
-                this.$pickDay[j].addEventListener('click',(e)=>{ 
-                    this.$info.innerHTML="오전/오후 모두 가능합니다."
-                    this.$defaultDay.classList.remove('show')
-                    this.$pickDay[j].classList.add('show');
-                    arr.push(this.$pickDay[j])
-                    if(arr[arr.length-2]!==this.$pickDay[j]){
-                        arr[arr.length-2].classList.remove('show')
-                    }
-                    this.Time.isAllDay();
-                })
-            }
-            
-            for (let k = 0; k<this.$Ahalf.length; k++){
-                this.$Ahalf[k].addEventListener('click',(e) =>{
-                    this.$defaultDay.classList.remove('show')
-                    this.$Ahalf[k].classList.add('show')
-                    arr.push(this.$Ahalf[k])
-                    if(arr[arr.length-2]!==this.$Ahalf[k]){
-                        arr[arr.length-2].classList.remove('show')
-                    }
-                    if(nextData===this.$proA.innerHTML){
-                        this.$info.innerHTML="오전만 가능합니다."
-                        this.Time.isAfterTime();
-                        
-                    }else if(nextData===this.$proB.innerHTML){
-                        this.$info.innerHTML="오후만 가능합니다."
-                        this.Time.isBeforeTime();
-                        
-                    }else if (nextData===this.$proC.innerHTML){
-                        this.$info.innerHTML="오전만 가능합니다."
-                        this.Time.isAfterTime();
-                        
-                    }
-                })
-            }
-
-            for (let y = 0; y<this.$xday.length; y++){
-                this.$xday[y].addEventListener('click', (e) =>{
-                    this.$info.innerHTML=""
-                })
-            }
-
+            this.selectedDay(nextData)
 
         })
 
+    }
+
+    selectedDay(nextData){
+
+        const $pickDay = document.querySelectorAll('.pickday');
+        const $defaultDay = document.querySelector('.pickday');
+        const $Ahalf = document.querySelectorAll('.Ahalf');
+        const $xday = document.querySelectorAll('.xday');
+        const $info =document.querySelector('.info');
+        const $time = document.querySelector('.time');
         
+        this.$pickDay = $pickDay
+        this.$defaultDay = $defaultDay
+        this.$Ahalf = $Ahalf
+        this.$xday =$xday;
+        this.$info = $info;
+        this.$time = $time;
+        
+        
+        this.$info.innerHTML =""
+        this.$defaultDay.classList.add('show')
+
+        const arr = [this.$defaultDay];
+
+        this.Time = new Time($info,$time,this.$finalCheck);
+        
+        for(let j = 0; j<this.$pickDay.length; j++){
+            this.$pickDay[j].addEventListener('click',(e)=>{ 
+                this.$info.innerHTML="오전/오후 모두 가능합니다."
+                this.$defaultDay.classList.remove('show')
+                this.$pickDay[j].classList.add('show');
+                arr.push(this.$pickDay[j])
+                if(arr[arr.length-2]!==this.$pickDay[j]){
+                    arr[arr.length-2].classList.remove('show')
+                }
+                this.Time.isAllDay($info.innerHTML)
+            })
+        }
+        
+        for (let k = 0; k<this.$Ahalf.length; k++){
+            this.$Ahalf[k].addEventListener('click',(e) =>{
+                this.$defaultDay.classList.remove('show')
+                this.$Ahalf[k].classList.add('show')
+                arr.push(this.$Ahalf[k])
+                if(arr[arr.length-2]!==this.$Ahalf[k]){
+                    arr[arr.length-2].classList.remove('show')
+                }
+                if(nextData===this.$proA.innerHTML){
+                    this.$info.innerHTML="오전만 가능합니다."
+                    this.Time.isAfterDay($info.innerHTML)
+                }else if(nextData===this.$proB.innerHTML){
+                    this.$info.innerHTML="오후만 가능합니다."
+                    this.Time.isBeforeDay($info.innerHTML)
+                }else if (nextData===this.$proC.innerHTML){
+                    this.$info.innerHTML="오전만 가능합니다."
+                    this.Time.isAfterDay($info.innerHTML)
+                }
+                
+            })
+        }
+
+        for (let y = 0; y<this.$xday.length; y++){
+            this.$xday[y].addEventListener('click', (e) =>{
+                this.$info.innerHTML=""
+            })
+        }
+
+        
+
+    }
+
+    reset(){
+        this.$pickDay.classList.remove('show')
+        this.$Ahalf.classList.remove('show')
+        this.$defaultDay.classList.add('show')
     }
     
 }

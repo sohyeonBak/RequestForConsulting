@@ -1,6 +1,6 @@
 import SelectAll from './Select.js';
 import Calendar from './Calendar.js'
-import Time from './Time.js'
+
 
 class All{
     constructor(){
@@ -8,21 +8,21 @@ class All{
         const $proA = document.querySelector(".proA");
         const $proB = document.querySelector(".proB");
         const $proC = document.querySelector(".proC");
-        const $consultList = document.querySelector('.consult-list')
+        const $consultList = document.querySelector('.consult-list');
+        const $finalCheck = document.querySelector('.finalCheck')
         
         this.$professorList = $professorList;
         this.$proA = $proA;
         this.$proB = $proB;
         this.$proC = $proC;
-        
-
-        
+        this.$finalCheck = $finalCheck;
         
         this.$proA.classList.add('pick')
 
         this.SelectAll = new SelectAll($consultList)
-        this.Calendar = new Calendar($professorList,$proA,$proB,$proC)
-        this.Time = new Time()
+        this.Calendar = new Calendar($professorList,$proA,$proB,$proC,$finalCheck)
+        
+        
 
         this.$proA.addEventListener('click', (e) => {
             e.preventDefault();
@@ -31,8 +31,7 @@ class All{
             this.$proC.classList.remove('pick');
             this.SelectAll.reset()
             this.Calendar.setState($professorList.querySelector('.pick').innerHTML)
-            this.Time.reset()
-            console.log($consultList)
+            
         })
         
         this.$proB.addEventListener('click', (e) => {
@@ -42,7 +41,7 @@ class All{
             this.$proC.classList.remove('pick');
             this.SelectAll.reset()
             this.Calendar.setState($professorList.querySelector('.pick').innerHTML)
-            this.Time.reset()
+            
         })
         
         this.$proC.addEventListener('click', (e) => {
@@ -52,7 +51,7 @@ class All{
             this.$proC.classList.add('pick');
             this.SelectAll.reset()
             this.Calendar.setState($professorList.querySelector('.pick').innerHTML)
-            this.Time.reset()
+           
         })
         
     }
