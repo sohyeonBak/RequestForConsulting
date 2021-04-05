@@ -8,15 +8,11 @@ class Calendar{
         const $calendarMonth = document.querySelector(".calendarMonth");
         const $dayList = document.querySelector(".dayList");
         
-        const leftSRC = '/leftarrow.png'
-        const rightSRC = '/rightarrow.png'
-        
         this.$prevMonth = $prevMonth;
         this.$nextMonth = $nextMonth;
         this.$calendarMonth = $calendarMonth;
         this.$dayList = $dayList;
-        this.$prevMonth.src = leftSRC;
-        this.$nextMonth.src = rightSRC;
+        
 
         this.$professorList = $professorList;
         this.$proA = $proA;
