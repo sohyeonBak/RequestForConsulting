@@ -8,8 +8,8 @@ class Calendar{
         const $calendarMonth = document.querySelector(".calendarMonth");
         const $dayList = document.querySelector(".dayList");
         
-        const leftSRC = 'https://s3-alpha-sig.figma.com/img/6174/45e2/fa79de1648a04ff017eaa043d71b612b?Expires=1616371200&Signature=YQ-zq5Waj-hSUJyYFc9YTHFJLBuQFqbffnCy9O8SMmWKhqiFFf3m16cUXJDLy1FbR~bufvGnR8ax04J2XduCvKHlyuhUSNxasgj6OG~9mpxSk2sAy-mhms2iRut2QE7JesKA3-kKdQmj9NAhDmUBoLMv3n6uFUWf-SDBnsfQEKDtHvv1DvohVhgLog3cXo4wIewEDaNjbE1Kbnq2TgYuJjMEwRCwksuy-QN4LAkNWuErKJSexND2p3kuookCmvgdeYqlvstE8PI3pt~F~R5F8oE~~AOCQVpiiFrBSG3hdL4HxPNwx4qCEngwzfunSIZ0GhOkUOy9z~qDY3Gfv-xWzg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
-        const rightSRC = 'https://s3-alpha-sig.figma.com/img/0672/f639/a9228b972262228f17353fc1f386ed6e?Expires=1616371200&Signature=NBj-XeJpO~MVRLkzdSbwmaU2l4vMliaWFs0vz6h4uj9nqzrQsfJuWSyJ4h31PP7snlvieyt5aXnF9~ZdpU53iqihPpMgw-5NEhHX9q7V4my6TbtNs4HV2Abrm0RB7rjmjLqjd89z0a2rhcM-Mp3YllMz54BiddgNNFvCzBJ0IatnQa5Zw3x1AWJ6Ree4lfg5zHngAYimmO1rYlDqHqOylgWSNixci42YPRmDdtKza5jvPqK7Lc8lhSX2oQby-B6pvhoLtHeKm7-dt9ccz8rluDnESu9GcJ9GK9-JH3lsFa2WQ~JgA502C3m0W8lzCroXINgLCblVbETgLNJA1A-qYA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
+        const leftSRC = '/leftarrow.png'
+        const rightSRC = '/rightarrow.png'
         
         this.$prevMonth = $prevMonth;
         this.$nextMonth = $nextMonth;
