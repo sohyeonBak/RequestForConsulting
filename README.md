@@ -21,7 +21,7 @@
 
 ### Study 📌
 `js로 달력만들기`
-- Velog : <>
+- Velog : <https://velog.io/@sohyeonbak_oly/%EC%9E%90%EB%B0%94-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%8B%AC%EB%A0%A5%EB%A7%8C%EB%93%A4%EA%B8%B0-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%B8%EB%8D%B0-%EC%83%81%EB%8B%B4%EC%8B%A0%EC%B2%AD%EC%9D%84-%EA%B3%81%EB%93%A4%EC%9D%B8>
 
 ### 배포
 Netlify
