@@ -41,11 +41,77 @@ button:focus {
   outline: none;
 }
 
-.header h1 {
-  font-weight: 300;
+.header .title-name {
+  width: 100%;
+  height: 120px;
+  -webkit-box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.08);
+          box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.08);
+}
+
+.header .title-name h1 {
+  font-weight: 700;
   text-align: center;
-  margin-top: 130px;
   font-size: 32px;
+  line-height: 120px;
+}
+
+.header .list-navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header .list-navigation .professorList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 768px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 40px;
+}
+
+.header .list-navigation .professorList li {
+  margin-left: 10px;
+  width: 33%;
+  height: 54px;
+  background-color: #edf1f3;
+}
+
+.header .list-navigation .professorList li a {
+  display: inline-block;
+  width: 100%;
+  line-height: 54px;
+  text-align: center;
+  border-radius: 2px;
+  font-weight: 700;
+  font-size: 20px;
+  color: #16283d;
+}
+
+.header .list-navigation .professorList li:hover {
+  background-color: #cadeff;
+}
+
+.header .list-navigation .professorList li:first-child {
+  margin-left: 0;
+}
+
+.header .list-navigation .professorList li .pick {
+  color: #ffffff;
+  background-color: #3e85ef;
+}
+
+.header .list-navigation .professorList li .pick:hover {
+  background-color: #3e85ef;
 }
 
 .header p {
@@ -57,50 +123,6 @@ button:focus {
 .header p em {
   font-family: "montserrat", sans-serif;
   font-weight: 700;
-}
-
-.professorList {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-top: 40px;
-}
-
-.professorList li {
-  padding: 20px;
-}
-
-.professorList li a {
-  display: inline-block;
-  width: 230px;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  border-radius: 6px;
-  font-weight: 700;
-  font-size: 20px;
-  background-color: #edf1f3;
-  color: #16283d;
-}
-
-.professorList li a:hover {
-  background-color: #cadeff;
-}
-
-.professorList li .pick {
-  color: #ffffff;
-  background-color: #3e85ef;
-}
-
-.professorList li .pick:hover {
-  background-color: #3e85ef;
 }
 
 section {
@@ -153,19 +175,21 @@ section .content .consult-con .consult-list {
 }
 
 section .content .consult-con .consult-list li {
-  margin-right: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-left: 4rem;
 }
 
 section .content .consult-con .consult-list li a {
   display: inline-block;
-  padding: 10px;
-  height: 30px;
+  padding: 8px;
+  height: 28px;
   width: 110%;
   text-align: center;
-  line-height: 30px;
+  line-height: 28px;
   font-weight: 300;
-  font-size: 18px;
-  border-radius: 6px;
+  font-size: 16px;
+  border-radius: 2px;
 }
 
 section .content .consult-con .consult-list li a:hover {
@@ -173,37 +197,32 @@ section .content .consult-con .consult-list li a:hover {
 }
 
 section .content .consult-con .consult-list li a.show {
-  display: inline-block;
-  padding: 10px;
-  height: 30px;
-  width: 110%;
-  text-align: center;
-  line-height: 30px;
-  font-weight: 300;
-  font-size: 18px;
-  border-radius: 6px;
   background-color: #3e85ef;
   color: #ffffff;
 }
 
-section .content .consult-con .consult-list li input {
-  border: 0;
-  background-color: #edf1f3;
-  border-radius: 0;
-  width: 300px;
-  height: 40px;
-  margin-top: 5px;
-}
-
-section .content .consult-con .consult-list li input:focus {
-  border: 1px solid #d4d1d1;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  outline: none;
+section .content .consult-con .consult-list li:first-child {
+  margin-left: 0;
 }
 
 section .content .consult-con .consult-list li:nth-child(n + 4) {
   margin-right: 30px;
+}
+
+section .content .consult-con .consult-list input {
+  border: 0;
+  background-color: #edf1f3;
+  border-radius: 0;
+  width: 60%;
+  height: 40px;
+  margin-top: 5px;
+}
+
+section .content .consult-con .consult-list input:focus {
+  border: 1px solid #d4d1d1;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
 }
 
 section .content .select-day {
@@ -216,6 +235,10 @@ section .content .select-day h2 {
   font-size: 24px;
 }
 
+section .content .select-day .mPrevBtn {
+  display: none;
+}
+
 section .content .select-day h3 {
   font-family: "montserrat", sans-serif;
   font-weight: 700;
@@ -224,6 +247,10 @@ section .content .select-day h3 {
   text-align: center;
   margin-top: 30px;
   width: 730px;
+}
+
+section .content .select-day .mNextBtn {
+  display: none;
 }
 
 section .content .select-day .calendar {
@@ -290,12 +317,12 @@ section .content .select-day .calendar .calendar-con tbody tr td p {
 
 section .content .select-day .calendar .calendar-con tbody tr td p:hover {
   background-color: #cadeff;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 section .content .select-day .calendar .calendar-con tbody tr td:first-child p {
   background-color: #edf1f3;
-  border-radius: 6px;
+  border-radius: 2px;
   line-height: 33px;
   cursor: not-allowed;
 }
@@ -307,7 +334,7 @@ section .content .select-day .calendar .calendar-con tbody tr td:first-child p:h
 section .content .select-day .calendar .calendar-con tbody tr td:nth-child(n + 7) p {
   background-color: #edf1f3;
   line-height: 33px;
-  border-radius: 6px;
+  border-radius: 2px;
   cursor: not-allowed;
 }
 
@@ -318,7 +345,7 @@ section .content .select-day .calendar .calendar-con tbody tr td:nth-child(n + 7
 section .content .select-day .calendar .calendar-con tbody tr .xday p {
   background-color: #edf1f3;
   line-height: 33px;
-  border-radius: 6px;
+  border-radius: 2px;
   cursor: not-allowed;
 }
 
@@ -330,14 +357,14 @@ section .content .select-day .calendar .calendar-con tbody tr .xday p:hover {
 section .content .select-day .calendar .calendar-con tbody tr .pickday.show p {
   background-color: #3e85ef;
   color: #ffffff;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 section .content .select-day .calendar .calendar-con tbody tr .Ahalf p {
   background-color: #ffca64;
   color: #ffffff;
   line-height: 33px;
-  border-radius: 6px;
+  border-radius: 2px;
   cursor: pointer;
 }
 
@@ -393,7 +420,7 @@ section .content .select-day .select-con .time {
 section .content .select-day .select-con .time span {
   width: 65px;
   height: 100%;
-  border-radius: 6px;
+  border-radius: 2px;
   border: 1px solid #edf1f3;
   font-size: 18px;
   text-align: center;
@@ -446,7 +473,7 @@ section .content .select-day .select-con .emailForm input:focus {
   text-align: center;
   line-height: 38px;
   border: 0;
-  border-radius: 6px;
+  border-radius: 2px;
   -webkit-box-shadow: 0px 0px 10px rgba(54, 54, 54, 0.3);
           box-shadow: 0px 0px 10px rgba(54, 54, 54, 0.3);
   cursor: pointer;
@@ -461,7 +488,7 @@ section .content .select-day .select-con .emailForm input:focus {
   text-align: center;
   line-height: 38px;
   border: 0;
-  border-radius: 6px;
+  border-radius: 2px;
   cursor: not-allowed;
 }
 
@@ -492,5 +519,200 @@ footer li a {
 
 footer li:first-child {
   padding-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .header .list-navigation .professorList {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  section .content {
+    width: 100%;
+  }
+  section .content .consult-con {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin-left: 16px;
+    margin-top: 50px;
+    width: 95%;
+  }
+  section .content .consult-con .consult-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    margin-top: 30px;
+  }
+  section .content .consult-con .consult-list li {
+    margin-left: 2rem;
+  }
+  section .content .consult-con input {
+    width: 100%;
+  }
+  section .content .select-day {
+    margin-left: 16px;
+    margin-top: 50px;
+  }
+  section .content .select-day h3 {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 30px;
+    width: 100%;
+  }
+  section .content .select-day .calendar {
+    width: 100%;
+  }
+  section .content .select-day .calendar .calendar-con {
+    width: 100%;
+    padding-right: 0;
+  }
+  section .content .select-day .calendar .calendar-con thead tr th {
+    width: 15%;
+    height: 40px;
+  }
+  section .content .select-day .calendar .calendar-con thead tr th:last-child {
+    text-align: right;
+  }
+  section .content .select-day .calendar .calendar-con .dayList tr td {
+    padding-left: 0.5rem;
+  }
+  section .content .select-day .calendar .nextBtn {
+    padding-left: 2rem;
+  }
+  section .content .select-day .calendar .nextBtn .nextMonth {
+    width: 60%;
+    margin-top: 70px;
+  }
+  section .content .select-day .calendar .nextBtn .nextMonth:hover {
+    cursor: pointer;
+  }
+  section .content .select-day .select-con {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding-right: 1rem;
+  }
+  section .content .select-day .select-con .time span {
+    font-size: 16px;
+  }
+  section .content .select-day .select-con .emailForm {
+    text-align: center;
+    margin: 30px;
+  }
+  section .content .select-day .select-con .emailForm span {
+    font-size: 16px;
+    padding-right: 10px;
+  }
+  section .content .select-day .select-con .emailForm input {
+    width: 60%;
+  }
+}
+
+@media (max-width: 414px) {
+  .header .title-name h1 {
+    font-size: 28px;
+    font-weight: 700;
+  }
+  .header .list-navigation .professorList {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 30px;
+  }
+  .header .list-navigation .professorList li {
+    width: 100%;
+    height: 50px;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .header .list-navigation .professorList li a {
+    line-height: 50px;
+    font-size: 18px;
+  }
+  .header p {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 14px;
+  }
+  section .content .consult-con {
+    width: 90%;
+  }
+  section .content .consult-con h2 {
+    font-size: 20px;
+  }
+  section .content .consult-con input {
+    display: none;
+  }
+  section .content .select-day {
+    margin-left: 20px;
+    margin-top: 50px;
+  }
+  section .content .select-day h2 {
+    font-size: 20px;
+  }
+  section .content .select-day .mPrevBtn {
+    display: inline-block;
+    width: 15px;
+  }
+  section .content .select-day .mPrevBtn img {
+    display: inline-block;
+    width: 100%;
+  }
+  section .content .select-day h3 {
+    display: inline-block;
+    font-size: 16px;
+    width: 80%;
+  }
+  section .content .select-day .mNextBtn {
+    display: inline-block;
+    width: 15px;
+  }
+  section .content .select-day .mNextBtn img {
+    display: inline-block;
+    width: 100%;
+  }
+  section .content .select-day .calendar {
+    width: 100%;
+    margin-top: 10px;
+  }
+  section .content .select-day .calendar .calendar-con {
+    width: 100%;
+    padding-right: 0;
+  }
+  section .content .select-day .calendar .calendar-con thead tr th {
+    width: 14%;
+    height: 40px;
+    font-size: 16px;
+  }
+  section .content .select-day .calendar .calendar-con thead tr th:last-child {
+    text-align: right;
+  }
+  section .content .select-day .calendar .calendar-con .dayList tr td {
+    font-size: 14px;
+    padding-left: 0;
+  }
+  section .content .select-day .calendar .nextBtn {
+    padding-left: 2rem;
+  }
+  section .content .select-day .calendar .nextBtn .nextMonth {
+    width: 60%;
+    margin-top: 70px;
+  }
+  section .content .select-day .calendar .nextBtn .nextMonth:hover {
+    cursor: pointer;
+  }
 }
 /*# sourceMappingURL=style.css.map */

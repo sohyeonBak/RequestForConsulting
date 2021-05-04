@@ -1,3 +1,5 @@
+@import "./layout";
+
 $defaultFont: "helvetica", sans-serif;
 $numberFont: "montserrat", sans-serif;
 
@@ -14,7 +16,7 @@ $baseColor: #edf1f3;
 $selectingColorA: #ffca64;
 $selectingColorB: #fb431b;
 
-$border: 6px;
+$border: 2px;
 
 body {
   font-family: $defaultFont;
@@ -56,53 +58,67 @@ input {
 button:focus {
   outline: none;
 }
+
 .header {
-  h1 {
-    font-weight: $fontWeightN;
-    text-align: center;
-    margin-top: 130px;
-    font-size: 32px;
+  .title-name {
+    width: 100%;
+    height: 120px;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.08);
+    h1 {
+      font-weight: $fontWeightB;
+      text-align: center;
+      font-size: 32px;
+      line-height: 120px;
+    }
   }
+  .list-navigation {
+    display: flex;
+    justify-content: center;
+    .professorList {
+      display: flex;
+      width: 768px;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 40px;
+      li {
+        margin-left: 10px;
+        width: 33%;
+        height: 54px;
+        background-color: $baseColor;
+        a {
+          display: inline-block;
+          width: 100%;
+          line-height: 54px;
+          text-align: center;
+          border-radius: $border;
+          font-weight: $fontWeightB;
+          font-size: 20px;
+          color: $textColorB;
+        }
+        &:hover {
+          background-color: #cadeff;
+        }
+        &:first-child {
+          margin-left: 0;
+        }
+        .pick {
+          color: $textColorC;
+          background-color: $primaryColor;
+          &:hover {
+            background-color: $primaryColor;
+          }
+        }
+      }
+    }
+  }
+
   p {
     font-weight: $fontWeightN;
     text-align: center;
     margin-top: 27px;
-
     em {
       font-family: $numberFont;
       font-weight: $fontWeightB;
-    }
-  }
-}
-
-.professorList {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 40px;
-  li {
-    padding: 20px;
-    a {
-      display: inline-block;
-      width: 230px;
-      height: 60px;
-      line-height: 60px;
-      text-align: center;
-      border-radius: $border;
-      font-weight: $fontWeightB;
-      font-size: 20px;
-      background-color: $baseColor;
-      color: $textColorB;
-      &:hover {
-        background-color: #cadeff;
-      }
-    }
-    .pick {
-      color: $textColorC;
-      background-color: $primaryColor;
-      &:hover {
-        background-color: $primaryColor;
-      }
     }
   }
 }
@@ -112,13 +128,11 @@ section {
   flex-direction: row;
   justify-content: center;
   margin-top: 80px;
-
   .content {
     width: 890px;
     border: 1px solid $baseColor;
     box-shadow: 0px 0px 20px rgba(54, 54, 54, 0.1);
     padding-bottom: 40px;
-
     .consult-con {
       margin-left: 85px;
       margin-top: 70px;
@@ -135,49 +149,45 @@ section {
         justify-content: flex-start;
         margin-top: 30px;
         li {
-          margin-right: 50px;
+          box-sizing: border-box;
+          margin-left: 4rem;
           a {
             display: inline-block;
-            padding: 10px;
-            height: 30px;
+            padding: 8px;
+            height: 28px;
             width: 110%;
             text-align: center;
-            line-height: 30px;
+            line-height: 28px;
             font-weight: $fontWeightN;
-            font-size: 18px;
+            font-size: 16px;
             border-radius: $border;
             &:hover {
               background-color: #cadeff;
             }
             &.show {
-              display: inline-block;
-              padding: 10px;
-              height: 30px;
-              width: 110%;
-              text-align: center;
-              line-height: 30px;
-              font-weight: $fontWeightN;
-              font-size: 18px;
-              border-radius: $border;
               background-color: $primaryColor;
               color: $textColorC;
             }
           }
-          input {
-            border: 0;
-            background-color: $baseColor;
-            border-radius: 0;
-            width: 300px;
-            height: 40px;
-            margin-top: 5px;
-            &:focus {
-              border: 1px solid rgb(212, 209, 209);
-              box-shadow: none;
-              outline: none;
-            }
+          &:first-child {
+            margin-left: 0;
           }
+
           &:nth-child(n + 4) {
             margin-right: 30px;
+          }
+        }
+        input {
+          border: 0;
+          background-color: $baseColor;
+          border-radius: 0;
+          width: 60%;
+          height: 40px;
+          margin-top: 5px;
+          &:focus {
+            border: 1px solid rgb(212, 209, 209);
+            box-shadow: none;
+            outline: none;
           }
         }
       }
@@ -190,6 +200,9 @@ section {
         font-weight: $fontWeightB;
         font-size: 24px;
       }
+      .mPrevBtn {
+        display: none;
+      }
       h3 {
         font-family: $numberFont;
         font-weight: $fontWeightB;
@@ -198,6 +211,9 @@ section {
         text-align: center;
         margin-top: 30px;
         width: 730px;
+      }
+      .mNextBtn {
+        display: none;
       }
       .calendar {
         display: flex;
@@ -438,6 +454,228 @@ footer {
     }
     &:first-child {
       padding-top: 40px;
+    }
+  }
+}
+
+@include desktop {
+}
+
+@include tablet {
+  .header {
+    .list-navigation {
+      .professorList {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+  }
+
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    .content {
+      width: 100%;
+      .consult-con {
+        box-sizing: border-box;
+        margin-left: 16px;
+        margin-top: 50px;
+        width: 95%;
+        .consult-list {
+          display: flex;
+          justify-content: flex-start;
+          margin-top: 30px;
+          li {
+            margin-left: 2rem;
+          }
+        }
+        input {
+          width: 100%;
+        }
+      }
+
+      .select-day {
+        margin-left: 16px;
+        margin-top: 50px;
+        h3 {
+          font-size: 20px;
+          text-align: center;
+          margin-top: 30px;
+          width: 100%;
+        }
+        .calendar {
+          width: 100%;
+          .calendar-con {
+            width: 100%;
+            padding-right: 0;
+            thead {
+              tr {
+                th {
+                  width: 15%;
+                  height: 40px;
+                  &:last-child {
+                    text-align: right;
+                  }
+                }
+              }
+            }
+            .dayList {
+              tr {
+                td {
+                  padding-left: 0.5rem;
+                }
+              }
+            }
+          }
+          .nextBtn {
+            padding-left: 2rem;
+            .nextMonth {
+              width: 60%;
+              margin-top: 70px;
+              &:hover {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+
+        .select-con {
+          width: 100%;
+          box-sizing: border-box;
+          padding-right: 1rem;
+          .time {
+            span {
+              font-size: 16px;
+            }
+          }
+          .emailForm {
+            text-align: center;
+            margin: 30px;
+            span {
+              font-size: 16px;
+              padding-right: 10px;
+            }
+            input {
+              width: 60%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mobile {
+  .header {
+    .title-name {
+      h1 {
+        font-size: 28px;
+        font-weight: $fontWeightB;
+      }
+    }
+    .list-navigation {
+      .professorList {
+        display: flex;
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        flex-direction: column;
+        margin-top: 30px;
+        li {
+          width: 100%;
+          height: 50px;
+          margin-left: 0;
+          margin-top: 10px;
+          a {
+            line-height: 50px;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    p {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      font-size: 14px;
+    }
+  }
+  section {
+    .content {
+      .consult-con {
+        width: 90%;
+        h2 {
+          font-size: 20px;
+        }
+        input {
+          display: none;
+        }
+      }
+      .select-day {
+        margin-left: 20px;
+        margin-top: 50px;
+        h2 {
+          font-size: 20px;
+        }
+        .mPrevBtn {
+          display: inline-block;
+          width: 15px;
+          img {
+            display: inline-block;
+            width: 100%;
+          }
+        }
+        h3 {
+          display: inline-block;
+          font-size: 16px;
+          width: 80%;
+        }
+        .mNextBtn {
+          display: inline-block;
+          width: 15px;
+          img {
+            display: inline-block;
+            width: 100%;
+          }
+        }
+        .calendar {
+          width: 100%;
+          margin-top: 10px;
+          .calendar-con {
+            width: 100%;
+            padding-right: 0;
+            thead {
+              tr {
+                th {
+                  width: 14%;
+                  height: 40px;
+                  font-size: 16px;
+                  &:last-child {
+                    text-align: right;
+                  }
+                }
+              }
+            }
+            .dayList {
+              tr {
+                td {
+                  font-size: 14px;
+                  padding-left: 0;
+                }
+              }
+            }
+          }
+          .nextBtn {
+            padding-left: 2rem;
+            .nextMonth {
+              width: 60%;
+              margin-top: 70px;
+              &:hover {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
