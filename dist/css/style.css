@@ -37,6 +37,10 @@ input {
   padding-left: 10px;
 }
 
+button:focus {
+  outline: none;
+}
+
 .header h1 {
   font-weight: 300;
   text-align: center;

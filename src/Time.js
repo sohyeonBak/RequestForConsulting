@@ -42,7 +42,7 @@ class Time {
             this.$after.classList.remove('show');
             this.Email.setState()
         })
-        this.Email.setState()
+        this.Email.reset()
     }
 
     isAfterDay($info){
@@ -74,6 +74,24 @@ class Time {
             this.$before.classList.add('show');
         })
         this.Email.setState()
+    }
+
+    reset(){
+        this.$after.classList.remove('show')
+        this.$before.classList.remove('show')
+        this.$after.classList.remove('delete')
+        this.$before.classList.remove('delete')
+        this.$after.addEventListener('click', () => {
+            this.$after.classList.remove('show');
+            this.$before.classList.remove('show');
+            this.Email.reset()
+        })
+        this.$before.addEventListener('click', () => {
+            this.$before.classList.remove('show');
+            this.$after.classList.remove('show');
+            this.Email.reset()
+        })
+        this.Email.reset()
     }
 
 }

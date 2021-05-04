@@ -53,7 +53,9 @@ input {
   vertical-align: middle;
   padding-left: 10px;
 }
-
+button:focus {
+  outline: none;
+}
 .header {
   h1 {
     font-weight: $fontWeightN;
@@ -411,7 +413,7 @@ section {
     line-height: 38px;
     border: 0;
     border-radius: $border;
-    
+
     cursor: not-allowed;
     &:active {
       outline: none;
