@@ -54,12 +54,14 @@ class Calendar{
 
         this.madeCalendal(nextData)
 
-        this.$prevMonth.addEventListener('click', () =>{
+        this.$prevMonth.addEventListener('click', (e) =>{
+            console.log(e)
             this.thisMonth > 0 ? this.thisMonth-- : 0;
             this.madeCalendal(nextData)
         })
         
-        this.$nextMonth.addEventListener('click', () =>{
+        this.$nextMonth.addEventListener('click', (e) =>{
+            console.log(e)
             this.thisMonth < this.month.length - 1 ? this.thisMonth++ : this.month.length - 1;
             this.madeCalendal(nextData)
         })
