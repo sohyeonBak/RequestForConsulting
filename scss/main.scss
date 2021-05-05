@@ -1,0 +1,500 @@
+@import "./style.scss";
+@import "./layout";
+
+section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 80px;
+  .content {
+    width: 890px;
+    border: 1px solid $baseColor;
+    box-shadow: 0px 0px 20px rgba(54, 54, 54, 0.1);
+    padding-bottom: 40px;
+    .consult-con {
+      margin-left: 85px;
+      margin-top: 70px;
+      width: 730px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid $baseColor;
+      h2 {
+        font-weight: $fontWeightB;
+        font-size: 24px;
+      }
+      .consult-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-top: 30px;
+        li {
+          box-sizing: border-box;
+          margin-left: 4rem;
+          a {
+            display: inline-block;
+            padding: 8px;
+            height: 28px;
+            width: 110%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: $fontWeightN;
+            font-size: 16px;
+            border-radius: $border;
+            &:hover {
+              background-color: #cadeff;
+            }
+            &.show {
+              background-color: $primaryColor;
+              color: $textColorC;
+            }
+          }
+          &:first-child {
+            margin-left: 0;
+          }
+
+          &:nth-child(n + 4) {
+            margin-right: 30px;
+          }
+        }
+        input {
+          border: 0;
+          background-color: $baseColor;
+          border-radius: 0;
+          width: 60%;
+          height: 40px;
+          margin-top: 5px;
+          &:focus {
+            border: 1px solid rgb(212, 209, 209);
+            box-shadow: none;
+            outline: none;
+          }
+        }
+      }
+    }
+
+    .select-day {
+      margin-left: 85px;
+      margin-top: 70px;
+      h2 {
+        font-weight: $fontWeightB;
+        font-size: 24px;
+      }
+      .monthBtn {
+        width: 730px;
+        text-align: center;
+        margin-top: 40px;
+        height: 60px;
+        .mPrevBtn {
+          display: inline-block;
+          width: 25px;
+          img {
+            display: inline-block;
+            width: 100%;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        h3 {
+          display: inline-block;
+          font-family: $numberFont;
+          font-weight: $fontWeightB;
+          color: $textColorA;
+          font-size: 24px;
+          text-align: center;
+          vertical-align: top;
+          padding-top: 10px;
+          width: 50%;
+        }
+        .mNextBtn {
+          display: inline-block;
+          width: 25px;
+          img {
+            display: inline-block;
+            width: 100%;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .calendar {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 10px;
+        width: 730px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $baseColor;
+        div {
+          display: inline-block;
+        }
+        .calendar-con {
+          width: 420px;
+          height: 280px;
+
+          table {
+            width: 100%;
+            thead {
+              tr {
+                th {
+                  width: 60px;
+                  height: 40px;
+                  font-family: $numberFont;
+                  font-weight: $fontWeightB;
+                  color: $textColorB;
+                  font-size: 18px;
+                  text-align: center;
+                }
+              }
+            }
+            tbody {
+              tr {
+                td {
+                  height: 40px;
+                  text-align: center;
+                  p {
+                    width: 33px;
+                    height: 33px;
+                    font-family: $numberFont;
+                    font-weight: $fontWeightN;
+                    color: $textColorA;
+                    line-height: 33px;
+                    margin-left: 12px;
+                    cursor: pointer;
+                    &:hover {
+                      background-color: #cadeff;
+                      border-radius: $border;
+                    }
+                  }
+                  &:first-child {
+                    p {
+                      background-color: $baseColor;
+                      border-radius: $border;
+                      line-height: 33px;
+                      cursor: not-allowed;
+                      &:hover {
+                        color: $textColorA;
+                      }
+                    }
+                  }
+                  &:nth-child(n + 7) {
+                    p {
+                      background-color: $baseColor;
+                      line-height: 33px;
+                      border-radius: $border;
+                      cursor: not-allowed;
+                      &:hover {
+                        color: $textColorA;
+                      }
+                    }
+                  }
+                }
+                .xday {
+                  p {
+                    background-color: $baseColor;
+                    line-height: 33px;
+                    border-radius: $border;
+                    cursor: not-allowed;
+                    &:hover {
+                      background-color: $baseColor;
+                      color: $textColorA;
+                    }
+                  }
+                }
+                .pickday {
+                  &.show {
+                    p {
+                      background-color: $primaryColor;
+                      color: $textColorC;
+                      border-radius: $border;
+                    }
+                  }
+                }
+                .Ahalf {
+                  p {
+                    background-color: #ffca64;
+                    color: $textColorC;
+                    line-height: 33px;
+                    border-radius: $border;
+                    cursor: pointer;
+                    &:hover {
+                      background-color: #ffca64;
+                      color: $textColorC;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .select-con {
+        display: inline-block;
+        height: 160px;
+        margin-top: 30px;
+        width: 730px;
+        div {
+          height: 50px;
+          text-align: center;
+          font-size: 14px;
+          font-weight: $fontWeightL;
+        }
+        p {
+          text-align: center;
+          font-size: 16px;
+          font-weight: $fontWeightL;
+        }
+        .time {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          height: 40px;
+          margin-top: 20px;
+          span {
+            width: 65px;
+            height: 100%;
+            border-radius: $border;
+            border: 1px solid $baseColor;
+            font-size: 18px;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+          }
+          .show {
+            background-color: $primaryColor;
+            color: $textColorC;
+          }
+          .delete {
+            color: $baseColor;
+            cursor: not-allowed;
+          }
+        }
+        .emailForm {
+          text-align: center;
+          margin: 30px;
+          span {
+            font-size: 18px;
+            padding-right: 10px;
+          }
+          input {
+            border: 0;
+            background-color: $baseColor;
+            border-radius: 0;
+            width: 380px;
+            height: 40px;
+            margin-top: 5px;
+            &:focus {
+              border: 1px solid rgb(212, 209, 209);
+              box-shadow: none;
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.check {
+  button {
+    width: 150px;
+    height: 40px;
+    background-color: $primaryColor;
+    color: $textColorC;
+    font-size: 20px;
+    text-align: center;
+    line-height: 38px;
+    border: 0;
+    border-radius: $border;
+    box-shadow: 0px 0px 10px rgba(54, 54, 54, 0.3);
+    cursor: pointer;
+  }
+  .hide {
+    width: 150px;
+    height: 40px;
+    background-color: $baseColor;
+    color: $textColorA;
+    font-size: 20px;
+    text-align: center;
+    line-height: 38px;
+    border: 0;
+    border-radius: $border;
+
+    cursor: not-allowed;
+    &:active {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+}
+
+@include desktop {
+}
+
+@include tablet {
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    .content {
+      width: 100%;
+      .consult-con {
+        box-sizing: border-box;
+        margin-left: 16px;
+        margin-top: 50px;
+        width: 95%;
+        .consult-list {
+          display: flex;
+          justify-content: flex-start;
+          margin-top: 30px;
+          li {
+            margin-left: 2rem;
+          }
+        }
+        input {
+          width: 100%;
+        }
+      }
+
+      .select-day {
+        margin-left: 16px;
+        margin-top: 50px;
+        .monthBtn {
+          width: 100%;
+          .mPrevBtn {
+            width: 20px;
+          }
+          h3 {
+            font-size: 20px;
+            width: 80%;
+          }
+          .mNextBtn {
+            width: 20px;
+          }
+        }
+        .calendar {
+          width: 100%;
+          .calendar-con {
+            width: 100%;
+            padding-right: 0;
+            thead {
+              tr {
+                th {
+                  width: 15%;
+                  height: 40px;
+                }
+              }
+            }
+            .dayList {
+              tr {
+                td {
+                  padding-left: 0.5rem;
+                }
+              }
+            }
+          }
+          .nextBtn {
+            padding-left: 2rem;
+            .nextMonth {
+              width: 60%;
+              margin-top: 70px;
+              &:hover {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+
+        .select-con {
+          width: 100%;
+          box-sizing: border-box;
+          padding-right: 1rem;
+          .time {
+            span {
+              font-size: 16px;
+            }
+          }
+          .emailForm {
+            text-align: center;
+            margin: 30px;
+            span {
+              font-size: 16px;
+              padding-right: 10px;
+            }
+            input {
+              width: 60%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mobile {
+  section {
+    .content {
+      .consult-con {
+        width: 90%;
+        h2 {
+          font-size: 20px;
+        }
+        input {
+          display: none;
+        }
+      }
+      .select-day {
+        margin-left: 20px;
+        margin-top: 50px;
+        h2 {
+          font-size: 20px;
+        }
+        .monthBtn {
+          box-sizing: border-box;
+          height: 45px;
+          padding-right: 1rem;
+        }
+        .calendar {
+          width: 100%;
+          margin-top: 10px;
+          .calendar-con {
+            width: 100%;
+            padding-right: 1.2rem;
+            padding-bottom: 1rem;
+            thead {
+              tr {
+                th {
+                  width: 14%;
+                  height: 40px;
+                  font-size: 16px;
+                  &:last-child {
+                    text-align: right;
+                  }
+                }
+              }
+            }
+            .dayList {
+              tr {
+                td {
+                  font-size: 14px;
+                  padding-left: 0;
+                }
+              }
+            }
+          }
+          .nextBtn {
+            padding-left: 2rem;
+            .nextMonth {
+              width: 60%;
+              margin-top: 70px;
+              &:hover {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
