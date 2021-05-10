@@ -15,7 +15,7 @@
 
 
 ### Skill 🔍
-1. JS class를 이용해 동적 페이지를 생성
+1. JS class를 이용해 동적  생성
 2. Scss를 이용해 빠르게 CSS 마크업을 진행
 
 
