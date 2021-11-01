@@ -36,11 +36,11 @@ class Contents{
         <h2>상담 날짜 및 시간</h2>
         <div class="monthBtn">
             <div class="mPrevBtn">
-                <img class="prevMonth" src="/src/image/leftarrow.png" alt="">
+                <span class="prevMonth material-icons">arrow_back_ios</span>
             </div>
             <h3 class="calendarMonth"></h3>
             <div class="mNextBtn">
-                <img class="nextMonth" src="/src/image/rightarrow.png" alt="">
+                <span class="nextMonth material-icons">arrow_forward_ios</span>
             </div>
         </div>
         <div class="calendar">
