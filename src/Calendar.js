@@ -1,32 +1,14 @@
-import Time from './Time.js'
-
+import SelectAll from "./Select.js";
 
 class Calendar{
-    isPickProfessor='';
-    constructor($professorList,$proA,$proB,$proC,$finalCheck){
-        const $prevMonth = document.querySelector(".prevMonth");
-        const $nextMonth = document.querySelector(".nextMonth");
-        const $calendarMonth = document.querySelector(".calendarMonth");
-        const $dayList = document.querySelector(".dayList");
-        
+    constructor({$monthName, $prevMonth, $nextMonth, $dayList, $info, data}){
+        this.$monthName = $monthName;
         this.$prevMonth = $prevMonth;
         this.$nextMonth = $nextMonth;
-        this.$calendarMonth = $calendarMonth;
         this.$dayList = $dayList;
+        this.$info = $info;
+        this.data = data;
         
-        this.$professorList = $professorList;
-        this.$proA = $proA;
-        this.$proB = $proB;
-        this.$proC = $proC;
-        this.$finalCheck = $finalCheck;
-        
-        this.setState($professorList.querySelector('.pick').innerHTML)
-        
-    }
-    
-    setState(nextData){
-        this.isPickProfessor = nextData;
-
         const nowDate = new Date();
         const year = nowDate.getFullYear();
         const lastDay = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -46,32 +28,35 @@ class Calendar{
         this.nowDate = nowDate;
         this.year = year;
         this.lastDay = lastDay;
-        this.month =month; 
+        this.month = month; 
         this.thisMonth = thisMonth;
         this.thisMonthDay = thisMonthDay;
         this.thisDate = thisDate;
         this.date = date;
 
-        this.madeCalendal(nextData)
-
+        let onMonth = this.thisMonth;
         this.$prevMonth.addEventListener('click', (e) =>{
-            console.log(e)
-            this.thisMonth > 0 ? this.thisMonth-- : 0;
-            this.madeCalendal(nextData)
+            onMonth = this.thisMonth > 0 ? this.thisMonth-- : 0;
+            this.render(onMonth-1>=0?onMonth-1:0)
         })
         
         this.$nextMonth.addEventListener('click', (e) =>{
-            console.log(e)
-            this.thisMonth < this.month.length - 1 ? this.thisMonth++ : this.month.length - 1;
-            this.madeCalendal(nextData)
+            onMonth = this.thisMonth < this.month.length - 1 ? this.thisMonth++ : this.month.length - 1;
+            this.render(onMonth+1 <= this.month.length - 1 ? onMonth+1 : this.month.length - 1)
+        })
+        this.render(onMonth)
+    
+        this.selectAll = new SelectAll({
+            data : this.data,
         })
     }
 
-    madeCalendal(nextData){
-        this.thisMonthDay = new Date(this.nowDate.getFullYear(), this.thisMonth).getDay();
+
+    render(onMonth){
+        this.thisMonthDay = new Date(this.nowDate.getFullYear(), onMonth).getDay();
         this.thisDate = this.month[this.thisMonth];
         this.date = this.lastDay[this.thisMonth];
-
+        
         let tag = "<tr>";
         tag = "<tr></tr>"
            
@@ -80,8 +65,7 @@ class Calendar{
             tag += `<td></td>`;
             count++;
         }
-
-        if(nextData===this.$proA.innerHTML){
+        if(!this.data || this.data==="proA"){
             for (let i = 1; i <= this.date; i++) {
                 if (count % 7 === 0) {
                     tag += "<tr>";
@@ -100,16 +84,12 @@ class Calendar{
                 }
                 if (count % 7 === 0) {
                     tag += "</tr>";
-                    }
-                
+                }
             }
-
-        }else if(nextData===this.$proB.innerHTML){
-        
+        }else if(this.data==="proB"){
             for (let i = 1; i <= this.date; i++) {
                 if (count % 7 === 0) {
                     tag += "<tr>";
-                    
                 }
                 if(((this.thisDate==="Jan"&& i===1)||(this.thisDate==="Feb"&& (i===11||i===12||i===13))||(this.thisDate==="Mar"&& i===1)||(this.thisDate==="May"&& (i===5||i===19))||(this.thisDate==="Aug"&& (i===20||i===21||i===22)))||(count % 7 === 0||count % 7 === 6)){
                     tag += `<td class="xday"><p>${i}</p></td>`;
@@ -125,11 +105,8 @@ class Calendar{
                 if (count % 7 === 0) {
                     tag += "</tr>";
                     }
-                
             }
-
-        }else if(nextData===this.$proC.innerHTML){
-            
+        }else if(this.data==="proC"){
             for (let i = 1; i <= this.date; i++) {
                 if (count % 7 === 0) {
                     tag += "<tr>";
@@ -150,95 +127,46 @@ class Calendar{
                     tag += "</tr>";
                 }
             }
-
         }
+        
+        this.$monthName.textContent = this.thisDate;
+        this.$dayList.innerHTML = tag;
 
-        this.$calendarMonth.textContent = this.thisDate
-        this.$dayList.innerHTML = tag
+        document.querySelectorAll(".pickday").forEach((item)=>{
+            item.addEventListener("click", (e) => {
+                e.preventDefault()
+                this.selectAll.setState(e.target.parentElement.className)
+                this.$info.innerHTML = "오전/오후 모두 가능합니다.";
+            })
+        })
 
-        this.selectedDay(nextData)
+        document.querySelectorAll(".Ahalf").forEach((item)=>{
+            item.addEventListener("click", (e) => {
+                e.preventDefault()
+                this.selectAll.setState(e.target.parentElement.className)
+                if(this.data==="proA"|| !this.data){
+                    this.$info.innerHTML = "오전만 가능합니다.";
+                }else if(this.data==="proB"){
+                    this.$info.innerHTML = "오후만 가능합니다.";
+                }else if(this.data==="proC"){
+                    this.$info.innerHTML = "오후만 가능합니다.";
+                }
+            })
+        })
+
+        document.querySelectorAll(".xday").forEach((item)=>{
+            item.addEventListener("click", (e) => {
+                e.preventDefault();
+                this.selectAll.setState(e.target.parentElement.className)
+                this.$info.innerHTML = "";
+            })
+        })
     }
 
-    selectedDay(nextData){
-
-        const $pickDay = document.querySelectorAll('.pickday');
-        const $defaultDay = document.querySelector('.pickday');
-        const $Ahalf = document.querySelectorAll('.Ahalf');
-        const $xday = document.querySelectorAll('.xday');
-        const $info =document.querySelector('.info');
-        const $time = document.querySelector('.time');
-        
-        this.$pickDay = $pickDay
-        this.$defaultDay = $defaultDay
-        this.$Ahalf = $Ahalf
-        this.$xday =$xday;
-        this.$info = $info;
-        this.$time = $time;
-        
-        this.$info.innerHTML =""
-        this.$defaultDay.classList.add('show')
-
-        const arr = [this.$defaultDay];
-
-        this.Time = new Time($info,$time,this.$finalCheck);
-        
-        for(let j = 0; j<this.$pickDay.length; j++){
-            this.$pickDay[j].addEventListener('click',(e)=>{ 
-                this.$info.innerHTML="오전/오후 모두 가능합니다."
-                this.$defaultDay.classList.remove('show')
-                this.$pickDay[j].classList.add('show');
-                arr.push(this.$pickDay[j])
-                if(arr[arr.length-2]!==this.$pickDay[j]){
-                    arr[arr.length-2].classList.remove('show')
-                }
-                this.Time.isAllDay($info.innerHTML)
-            })
-        }
-        
-        for (let k = 0; k<this.$Ahalf.length; k++){
-            this.$Ahalf[k].addEventListener('click',(e) =>{
-                this.$defaultDay.classList.remove('show')
-                this.$Ahalf[k].classList.add('show')
-                arr.push(this.$Ahalf[k])
-                if(arr[arr.length-2]!==this.$Ahalf[k]){
-                    arr[arr.length-2].classList.remove('show')
-                }
-                if(nextData===this.$proA.innerHTML){
-                    this.$info.innerHTML="오전만 가능합니다."
-                    this.Time.isAfterDay($info.innerHTML)
-                }else if(nextData===this.$proB.innerHTML){
-                    this.$info.innerHTML="오후만 가능합니다."
-                    this.Time.isBeforeDay($info.innerHTML)
-                }else if (nextData===this.$proC.innerHTML){
-                    this.$info.innerHTML="오전만 가능합니다."
-                    this.Time.isAfterDay($info.innerHTML)
-                }
-                
-            })
-        }
-
-        for (let y = 0; y<this.$xday.length; y++){
-            this.$xday[y].addEventListener('click', (e) =>{
-                console.log(e)
-                this.$info.innerHTML=""
-                this.Time.reset()
-            })
-        }
-    }
-
-    reset(){
-        this.$pickDay.classList.remove('show')
-        this.$Ahalf.classList.remove('show')
-        this.$defaultDay.classList.add('show')
-    }
     
 }
 
 export default Calendar;
-        
-        
-       
-    
 
 
 

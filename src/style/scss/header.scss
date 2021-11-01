@@ -26,7 +26,6 @@
         margin-left: 10px;
         width: 33%;
         height: 54px;
-        background-color: $baseColor;
         a {
           display: inline-block;
           width: 100%;
@@ -35,6 +34,7 @@
           border-radius: $border;
           font-weight: $fontWeightB;
           font-size: 20px;
+          background-color: $baseColor;
           color: $textColorB;
         }
         &:hover {

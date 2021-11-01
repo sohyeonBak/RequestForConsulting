@@ -1,3 +1,3 @@
-import All from './src/All.js';
+import App from './src/App.js';
 
-new All(document.querySelector("#All"))
+new App(document.querySelector("#All"))
