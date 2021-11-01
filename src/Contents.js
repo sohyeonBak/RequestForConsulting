@@ -62,8 +62,8 @@ class Contents{
             </div>
         </div>
         <div class="select-con">
-            <div class="info"></div>
             <p>오전은 10시부터 12시, 오후는 2시부터 4시까지 상담시간입니다.</p>
+            <div class="info"></div>
             <div class="time">
                 <span class="after">오전</span>
                 <span class="before">오후</span>
@@ -71,7 +71,7 @@ class Contents{
             
             <div class="emailForm">
                 <span>이메일 입력 :</span>
-                <input class="emailCon" type="email" placeholder="상담 확정 메일을 받을 주소를 입력해주세요." disabled>
+                <input class="emailCon" type="email" placeholder="상담 확정 메일을 받을 주소를 입력해주세요.">
             </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import SelectAll from "./Select.js";
 
 class Calendar{
+    data = null;
     constructor({$monthName, $prevMonth, $nextMonth, $dayList, $info, data}){
         this.$monthName = $monthName;
         this.$prevMonth = $prevMonth;
@@ -45,14 +46,16 @@ class Calendar{
             this.render(onMonth+1 <= this.month.length - 1 ? onMonth+1 : this.month.length - 1)
         })
         this.render(onMonth)
-    
+        
         this.selectAll = new SelectAll({
-            data : this.data,
+            info : this.data
         })
+        
     }
 
 
     render(onMonth){
+        
         this.thisMonthDay = new Date(this.nowDate.getFullYear(), onMonth).getDay();
         this.thisDate = this.month[this.thisMonth];
         this.date = this.lastDay[this.thisMonth];

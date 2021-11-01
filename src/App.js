@@ -1,5 +1,6 @@
 import Header from './Header.js';
 import Contents from './Contents.js';
+import Confirm from './Confirm.js';
 
 class App{
     $target = null;
@@ -16,8 +17,12 @@ class App{
 
         this.contents = new Contents({
             $target,
-          })
+        })
         
+
+        this.confirm = new Confirm({
+            $target
+        })
     }
 
     setState(nextData){
